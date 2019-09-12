@@ -1,0 +1,36 @@
+nav li {
+    display: inline-block;
+  }
+  
+  nav a {
+    padding: 5px;
+    text-decoration: none;
+    color: var(--snips-black);
+  
+    transition: color 0.2s;
+  }
+  
+  nav a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* Header styling */
+  header {
+    padding: 1rem 2rem;
+    background-color: var(--snips-grey);
+  }
+  
+  /* TODO: Footer styling */
+  
+  footer {
+    padding: 1rem 2rem;
+    background-color: var(--snips-grey);
+  }
+  footer nav {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin: auto;
+    justify-content: space-between;
+  }
