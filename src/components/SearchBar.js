@@ -1,32 +1,55 @@
-import React from 'react'
+import React from 'react';
 
 export default class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            searchText: '',
-        };
-    }
+    this.state = {
+      searchText: '',
+    };
+  }
 
-    handleChange= event=> {
-        console.log(event);
-        this.setState({
-            searchText: event.target.value,
-        });
-    }
+  // uses newer arrow sytnax to bind method to this
+  handleChange = event => {
+    // capture the input data from the event
+    // update state
+    this.setState({
+      searchText: event.target.value,
+    });
+  };
 
-    render() {
-        return (
-            <form id="search">
-                <label for="search-text">
-                    <span class="icon">🔎</span>
-                </label>
-                <input type="text" name="search-text" id="search-text" value={this.state.searchText}
-                    onChange={this.handleChange} />
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log('Submitting.');
+    this.props.onSearch(this.state.searchText);
 
-                <button type="submit">Search</button>
-            </form>
-        )
-    }
+  };
+
+  render() {
+    return (
+      <form id="search" onSubmit={this.handleSubmit}>
+        <label htmlFor="search-text">
+          <span className="icon">🔎</span>
+        </label>
+        
+        <input
+          type="text"
+          name="search-text"
+          id="search-text"
+          value={this.state.searchText}
+          onChange={this.handleChange}
+        />
+        <div>
+         <input
+          type="text"
+          name="search-text"
+          id="search-text" 
+        />
+        </div>
+
+        <button type="submit">Search</button>
+      </form>
+    );
+  }
 }
+
